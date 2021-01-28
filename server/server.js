@@ -1,6 +1,9 @@
 const express = require("express");
 const axios = require("axios");
 const app = express();
+var cors = require("cors");
+
+app.use(cors());
 
 app.listen(4040, () => {
   console.log("Listening");
@@ -14,7 +17,12 @@ app.get("/champions", async function (req, res) {
   const instance = axios.create({});
   try {
     let championInfo = await instance.get(apiUrl);
-    res.send(championInfo.data.data);
+    let championArray = [];
+    for (key in championInfo.data.data) {
+      championArray.push(championInfo.data.data[key]);
+    }
+
+    res.send(championArray);
   } catch (error) {
     console.log(error);
   }
