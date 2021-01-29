@@ -9,8 +9,6 @@ const Roster = () => {
   useEffect(() => {
     axios.get(`http://localhost:4040/champions`).then((res) => {
       setChampInfo(res.data);
-      console.log(res.data, "this is res.data");
-      console.log(champInfo);
     });
 
     setLoaded(true);
@@ -21,13 +19,16 @@ const Roster = () => {
     history.push(`/champions/${id}/details`);
   };
   if (loaded === "false") {
-    console.log("wtf");
     return loaded;
   } else {
     return (
       <div>
         {champInfo.map((champion) => (
           <img
+            className="mt-5 mx-3"
+            width="85px"
+            height="85px"
+            alt={champion.id}
             onClick={() => handleUpdate(champion.id)}
             src={`http://ddragon.leagueoflegends.com/cdn/6.8.1/img/champion/${champion.image.full}`}
           />
