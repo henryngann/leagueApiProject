@@ -1,16 +1,25 @@
 const express = require("express");
 const axios = require("axios");
 const app = express();
+const ChampionsDB = require("./models/ChampionsDB");
 const { Sequelize } = require("sequelize");
-const sequelize = new Sequelize(
-  "postgres://postgres:password@localhost:5432/champions"
-);
+
+//Database Instance
+
+const db = require("./config/database");
+
+//Testing DB connection to see if we are connected
+
+db.authenticate()
+  .then(() => console.log("Database Connected"))
+  .catch((err) => console.log("Error: " + err));
 var cors = require("cors");
 
 app.use(cors());
 
-app.listen(4040, () => {
+app.listen(4040, async () => {
   console.log("Listening");
+  await db.sync({ force: true });
 });
 
 //Get All Champions Route
@@ -22,8 +31,16 @@ app.get("/champions", async function (req, res) {
   try {
     let championInfo = await instance.get(apiUrl);
     let championArray = [];
+    let loadChamps = [];
     for (key in championInfo.data.data) {
       championArray.push(championInfo.data.data[key]);
+      //Loaded ALL Champs in the database
+      let loadChamps = await ChampionsDB.create({
+        key: championInfo.data.data[key].key,
+        id: championInfo.data.data[key].id,
+        title: championInfo.data.data[key].title,
+        blurb: championInfo.data.data[key].blurb,
+      });
     }
 
     res.send(championArray);
@@ -38,8 +55,8 @@ app.get("/champions/:id", async function (req, res) {
 
   try {
     let championInfo = await instance.get(apiUrl);
-    console.log(championInfo.data.data);
     res.send(championInfo.data.data);
+    console.log(championInfo.data.data);
   } catch (error) {
     console.log(error);
   }

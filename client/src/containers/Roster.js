@@ -18,6 +18,7 @@ const Roster = () => {
   const handleUpdate = (id) => {
     history.push(`/champions/${id}/details`);
   };
+
   if (loaded === "false") {
     return loaded;
   } else {
@@ -25,6 +26,7 @@ const Roster = () => {
       <div>
         {champInfo.map((champion) => (
           <img
+            key={champion.id}
             className="mt-5 mx-3"
             width="85px"
             height="85px"
