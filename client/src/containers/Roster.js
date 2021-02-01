@@ -9,10 +9,10 @@ const Roster = () => {
   useEffect(() => {
     axios.get(`http://localhost:4040/champions`).then((res) => {
       setChampInfo(res.data);
+      console.log(res.data);
     });
 
     setLoaded(true);
-    // Update the document title using the browser API
   }, []);
 
   const handleUpdate = (id) => {

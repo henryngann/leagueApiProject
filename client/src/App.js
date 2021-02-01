@@ -7,7 +7,7 @@ function App() {
     <div>
       <Router>
         <Switch>
-          <Route exact path="/" component={Champions} />
+          <Route exact path="/champions" component={Champions} />
           <Route
             exact
             path="/champions/:id/details"

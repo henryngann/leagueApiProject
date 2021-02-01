@@ -19,7 +19,7 @@ app.use(cors());
 
 app.listen(4040, async () => {
   console.log("Listening");
-  await db.sync({ force: true });
+  await db.sync({ force: false });
 });
 
 //Get All Champions Route
@@ -34,13 +34,14 @@ app.get("/champions", async function (req, res) {
     let loadChamps = [];
     for (key in championInfo.data.data) {
       championArray.push(championInfo.data.data[key]);
-      //Loaded ALL Champs in the database
-      let loadChamps = await ChampionsDB.create({
-        key: championInfo.data.data[key].key,
-        id: championInfo.data.data[key].id,
-        title: championInfo.data.data[key].title,
-        blurb: championInfo.data.data[key].blurb,
-      });
+
+      // //Loaded ALL Champs in the database
+      // let loadChamps = await ChampionsDB.create({
+      //   key: championInfo.data.data[key].key,
+      //   id: championInfo.data.data[key].id,
+      //   title: championInfo.data.data[key].title,
+      //   blurb: championInfo.data.data[key].blurb,
+      // });
     }
 
     res.send(championArray);
