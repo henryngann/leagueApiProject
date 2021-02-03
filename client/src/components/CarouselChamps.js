@@ -12,9 +12,14 @@ const CarouselChamps = (props) => {
   return (
     <div
       className="container bg-danger"
-      style={{ height: "500px", width: "500px" }}
+      style={{ height: "300px", width: "500px" }}
     >
-      <Carousel activeIndex={index} onSelect={handleSelect}>
+      <Carousel
+        activeIndex={index}
+        prevLabel=""
+        nextLabel=""
+        onSelect={handleSelect}
+      >
         <Carousel.Item>
           <img
             className="d-block w-100 h-100 p-3 rounded-3"

@@ -8,7 +8,11 @@ const TitleMessage = styled.h1`
 `;
 
 const Title = () => {
-  return <TitleMessage className="mt-5">Search a Champion</TitleMessage>;
+  return (
+    <TitleMessage className="mt-5">
+      Choose your <i>Champion</i>
+    </TitleMessage>
+  );
 };
 
 export default Title;

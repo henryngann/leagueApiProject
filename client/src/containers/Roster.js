@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
-
+//https://na.leagueoflegends.com/en-us/champions/aatrox/
 const Roster = () => {
   const [champInfo, setChampInfo] = useState([]);
   const [loaded, setLoaded] = useState(false);
@@ -9,7 +9,6 @@ const Roster = () => {
   useEffect(() => {
     axios.get(`http://localhost:4040/champions`).then((res) => {
       setChampInfo(res.data);
-      console.log(res.data);
     });
 
     setLoaded(true);
