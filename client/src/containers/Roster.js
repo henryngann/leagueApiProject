@@ -32,7 +32,7 @@ const Roster = () => {
             height="85px"
             alt={champion.id}
             onClick={() => handleUpdate(champion.id)}
-            src={`http://ddragon.leagueoflegends.com/cdn/6.8.1/img/champion/${champion.image.full}`}
+            src={`http://ddragon.leagueoflegends.com/cdn/11.3.1/img/champion/${champion.image.full}`}
           />
         ))}
       </div>

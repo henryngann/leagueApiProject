@@ -26,7 +26,7 @@ app.listen(4040, async () => {
 
 app.get("/champions", async function (req, res) {
   const apiUrl =
-    "http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion.json";
+    "http://ddragon.leagueoflegends.com/cdn/11.3.1/data/en_US/champion.json";
   const instance = axios.create({});
   try {
     let championInfo = await instance.get(apiUrl);
@@ -51,7 +51,7 @@ app.get("/champions", async function (req, res) {
 });
 //Get one champion route
 app.get("/champions/:id", async function (req, res) {
-  const apiUrl = `http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion/${req.params.id}.json`;
+  const apiUrl = `http://ddragon.leagueoflegends.com/cdn/11.3.1/data/en_US/champion/${req.params.id}.json`;
   const instance = axios.create({});
 
   try {
@@ -65,7 +65,7 @@ app.get("/champions/:id", async function (req, res) {
 //Get all spells on one champ
 
 app.get("/champions/:id/spell", async function (req, res) {
-  const apiUrl = `http://ddragon.leagueoflegends.com/cdn/11.1.1/data/en_US/champion/${req.params.id}.json`;
+  const apiUrl = `http://ddragon.leagueoflegends.com/cdn/11.3.1/data/en_US/champion/${req.params.id}.json`;
   const instance = axios.create({});
   let paramsId = req.params.id;
   try {
