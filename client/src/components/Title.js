@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const TitleMessage = styled.h1`
-  font-size: 1.5em;
+  font-size: 8em;
   text-align: center;
   color: palevioletred;
 `;

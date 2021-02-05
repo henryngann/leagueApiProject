@@ -5,9 +5,11 @@ import Search from "../components/Search";
 import Roster from "../containers/Roster";
 const Champions = () => {
   return (
-    <div>
+    <div className="bg-dark">
       <Navbar></Navbar>
-      <h1 className="text-center mt-5">Henry.GG</h1>
+      <h1 className="text-center mt-5" style={{ color: "white" }}>
+        Henry.GG
+      </h1>
       <Title></Title>
       <Search></Search>
       <div className="container mt-5">
