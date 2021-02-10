@@ -15,6 +15,9 @@ const ChampSkills = () => {
   const [selectedSkill, setSelectedSkill] = useState([0]);
   const [pname, setPname] = useState("");
   const [desc, setDesc] = useState("");
+
+  //statistic states//
+
   useEffect(() => {
     axios.get(`http://localhost:4040/champions/${selected.id}`).then((res) => {
       setSkills(res.data[selected.id].spells);

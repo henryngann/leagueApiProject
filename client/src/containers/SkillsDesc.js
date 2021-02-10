@@ -14,9 +14,11 @@ const Description = styled.div`
 const SkillsDesc = (props) => {
   return (
     <Description>
-      {props.sname}
+      <p style={{ width: "61rem" }}>
+        <strong>{props.sname}</strong>
+      </p>
       <br></br>
-      {props.description}
+      <p style={{ width: "61rem" }}>{props.description}</p>
     </Description>
   );
 };

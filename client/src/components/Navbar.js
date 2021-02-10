@@ -1,8 +1,8 @@
 import React from "react";
-
+import "../media/background.css";
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar navbar-expand-lg navbar">
       <div className="container-fluid">
         <a className="navbar-brand" href="/champions">
           Henry.GG
@@ -20,7 +20,7 @@ const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div className="navbar-nav">
-            <a className="nav-link active" aria-current="page" href="/cja">
+            <a className="nav-link active" aria-current="page" href="/">
               Champions
             </a>
             <a className="nav-link" href="/#">

@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+
 //https://na.leagueoflegends.com/en-us/champions/aatrox/
 const Roster = () => {
   const [champInfo, setChampInfo] = useState([]);
   const [loaded, setLoaded] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+
   let history = useHistory();
   useEffect(() => {
     axios.get(`http://localhost:4040/champions`).then((res) => {
       setChampInfo(res.data);
+      console.log(champInfo);
     });
 
     setLoaded(true);
@@ -23,17 +27,39 @@ const Roster = () => {
   } else {
     return (
       <div>
-        {champInfo.map((champion) => (
-          <img
-            key={champion.id}
-            className="mt-5 mx-3"
-            width="85px"
-            height="85px"
-            alt={champion.id}
-            onClick={() => handleUpdate(champion.id)}
-            src={`http://ddragon.leagueoflegends.com/cdn/11.3.1/img/champion/${champion.image.full}`}
+        <div className="form-floating mt-5">
+          <input
+            type="text"
+            className="form-control"
+            id="floatingInput"
+            placeholder="Search a Champion"
+            onChange={(event) => {
+              setSearchTerm(event.target.value);
+            }}
           />
-        ))}
+          <label htmlFor="floatingInput">Search A Champion!</label>
+        </div>
+        {champInfo
+          .filter((val) => {
+            if (searchTerm === "") {
+              return val;
+            } else if (
+              val.id.toLowerCase().includes(searchTerm.toLowerCase())
+            ) {
+              return val;
+            }
+          })
+          .map((champion) => (
+            <img
+              key={champion.id}
+              className="mt-5 mx-3"
+              width="85px"
+              height="85px"
+              alt={champion.id}
+              onClick={() => handleUpdate(champion.id)}
+              src={`http://ddragon.leagueoflegends.com/cdn/11.3.1/img/champion/${champion.image.full}`}
+            />
+          ))}
       </div>
     );
   }

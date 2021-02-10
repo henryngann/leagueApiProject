@@ -5,12 +5,12 @@ import ChampCard from "../containers/ChampCard";
 import ChampSplash from "../containers/ChampSplash";
 import ChampLoading from "../components/ChampLoading";
 import ChampSkills from "../containers/ChampSkills";
-
+import "../media/background.css";
 const ChampionDetails = () => {
   const selected = useParams();
 
   return (
-    <div className="bg-dark">
+    <div className="background" style={{ height: "110rem" }}>
       <Navbar></Navbar>
       <ChampSplash id={selected.id} />
 
@@ -18,8 +18,6 @@ const ChampionDetails = () => {
         <ChampLoading id={selected.id}></ChampLoading>
         <ChampSkills />
       </div>
-
-      <ChampCard></ChampCard>
     </div>
   );
 };
