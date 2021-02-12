@@ -1,0 +1,17 @@
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-150%);
+  }
+  80% {
+    transform: translateY(20%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.logo {
+  /* This section calls the slideInFromLeft animation we defined above */
+  animation: 1.5s cubic-bezier(0.8, -0.46, 0.45, 0.61) 0s 1 slideInFromTop;
+
+  padding: 30px;
+}

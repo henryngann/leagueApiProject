@@ -42,8 +42,7 @@ const ChampSkills = () => {
     return loaded;
   } else {
     return (
-      <>
-        <SkillsTitle />
+      <div>
         <Passive
           click={() => handlePassive(pname, desc)}
           image={currentChamp.passive.image.full}
@@ -56,14 +55,16 @@ const ChampSkills = () => {
               src={`http://ddragon.leagueoflegends.com/cdn/11.3.1/img/spell/${skill.image.full}`}
               alt="Abilties"
               style={{
+                width: "150px",
+                height: "150px",
                 padding: "40px",
-                marginTop: "7rem",
+                marginTop: "12.5rem",
               }}
             />
           );
         })}
         <SkillsDesc description={description} sname={sname}></SkillsDesc>
-      </>
+      </div>
     );
   }
 };

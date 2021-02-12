@@ -1,0 +1,23 @@
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-150%);
+  }
+  80% {
+    transform: translateY(20%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.titleani1 {
+  /* This section calls the slideInFromLeft animation we defined above */
+  animation: 0.7s cubic-bezier(0.95, 1.94, 0.99, 1.14) 0s 1 slideInFromTop;
+}
+.titleani2 {
+  /* This section calls the slideInFromLeft animation we defined above */
+  animation: 0.9s cubic-bezier(0.95, 1.94, 0.99, 1.14) 0s 1 slideInFromTop;
+}
+.titleani3 {
+  /* This section calls the slideInFromLeft animation we defined above */
+  animation: 1s cubic-bezier(0.95, 1.94, 0.99, 1.14) 0s 1 slideInFromTop;
+}

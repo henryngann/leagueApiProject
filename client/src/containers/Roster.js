@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 
 //https://na.leagueoflegends.com/en-us/champions/aatrox/
 const Roster = () => {
@@ -37,8 +38,8 @@ const Roster = () => {
               setSearchTerm(event.target.value);
             }}
           />
-          <label htmlFor="floatingInput">Search A Champion!</label>
         </div>
+
         {champInfo
           .filter((val) => {
             if (searchTerm === "") {

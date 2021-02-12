@@ -8,8 +8,10 @@ const Passive = (props) => {
       src={`http://ddragon.leagueoflegends.com/cdn/11.3.1/img/passive/${props.image}`}
       alt="passive"
       style={{
+        width: "150px",
+        height: "150px",
         padding: "40px",
-        marginTop: "7rem",
+        marginTop: "12.5rem",
       }}
     />
   );
